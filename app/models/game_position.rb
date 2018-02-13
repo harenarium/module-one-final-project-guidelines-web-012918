@@ -1,9 +1,9 @@
 class GamePosition < ActiveRecord::Base
   belongs_to :word
-  belongs_to :team
+  belongs_to :color
 
   def self.create_new_game
-    #drop the previous table in db
+    self.destroy_all
     first_color = [1,2].sample(1)
     color_distribution = [1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4] << first_color[0]
     random_color = color_distribution.sample(25)
@@ -16,14 +16,58 @@ class GamePosition < ActiveRecord::Base
     }
   end
 
-  def self.words_array
+  def self.formatted_words_array
     self.all.map{ |gp|
-      gp.word.word
+      gp.format_color(gp.formatted_word, gp.color_id)
     }
   end
 
-  def self.colors_array ##
-    self.all.color_id.pluck(:color)
+  # def self.colors_array ##
+  #   self.all.color_id.pluck(:color)
+  # end
+
+  def formatted_word
+    case self.word.word.length
+    when 10
+      "#{self.word.word} "
+    when 9
+      " #{self.word.word} "
+    when 8
+      " #{self.word.word}  "
+    when 7
+      "  #{self.word.word}  "
+    when 6
+      "  #{self.word.word}   "
+    when 5
+      "   #{self.word.word}   "
+    when 4
+      "   #{self.word.word}    "
+    when 3
+      "    #{self.word.word}    "
+    when 2
+      "    #{self.word.word}     "
+    when 1
+      "     #{self.word.word}     "
+    else
+      self.word.word[0...11]
+    end
+  end
+
+  def format_color(word_string, color_id)
+    if self.guessed
+      case color_id
+      when 1
+        "\e[1m\e[37m\e[41m#{word_string}\e[0m\e[0m\e[22m"
+      when 2
+        "\e[1m\e[37m\e[44m#{word_string}\e[0m\e[0m\e[22m"
+      when 3
+        "\e[1m\e[47m#{word_string}\e[0m\e[22m"
+      when 4
+        "\e[1m\e[31m\e[40m#{word_string}\e[0m\e[0m\e[22m"
+      end
+    else
+      word_string
+    end
   end
 
 end

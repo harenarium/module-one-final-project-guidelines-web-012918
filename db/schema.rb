@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20180212211423) do
 
   create_table "words", force: :cascade do |t|
     t.string  "word"
-    t.string  "clue"
     t.boolean "in_game"
   end
 
