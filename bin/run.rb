@@ -13,10 +13,10 @@ user_turns
 
 
 
-
-
-get_guess_from_user_red
-get_guess_from_user_blue
+# 
+#
+# get_guess_from_user_red
+# get_guess_from_user_blue
 
 #
 # character = get_guess_from_user

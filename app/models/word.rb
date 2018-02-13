@@ -58,4 +58,5 @@ class Word < ActiveRecord::Base
       end
     }
       word_found #== false
+    end
 end

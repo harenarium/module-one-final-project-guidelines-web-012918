@@ -52,49 +52,52 @@ def blue_team_guess
   gets.chomp.downcase
 end
 
+def red_team_turn
+  if Word.guessed_word_in_game(red_team_guess)
+    case Word.find_by(word: red_team_guess).game_positions[0].color_id
+    when 1
+      puts "Correct"
+    when 2
+      puts "Incorrect"
+    when 3
+      puts "Grey"
+    when 4
+      puts "Game over!"
+    end
+  else
+    puts "Incorrect input"
+    red_team_turn
+  end
+end
+
+def blue_team_turn
+    case Word.find_by(word: blue_team_guess).game_positions[0].color_id
+    when 1
+      puts "Correct"
+    when 2
+      puts "Incorrect"
+    when 3
+      puts "Grey"
+    when 4
+      puts "Game over!"
+    else
+      puts "Incorrect input"
+      blue_team_turn
+    end
+end
+
 def user_turns
   red_team_score = Color.count_team_red
   blue_team_score = Color.count_team_blue
   # binding.pry
   # round = 1
   while red_team_score > 0 && blue_team_score > 0
-    red_team_turn(Word.find_by(word: red_team_guess).game_positions[0].color_id)
-  #   # binding.pry
-  #   # blue_input = Word.find_by(word: blue_team_guess).game_positions[0].color_id
-  #   # blue_team_turn(blue_input)
-  #   puts "Round #{round}!"
-  #   # round += 1
-  end
-end
 
-def red_team_turn(input)
-  if input == 1
-    red_team_score -= 1
-    puts "Correct"
-  elsif input == 2
-    blue_team_score -= 1
-    puts "That was a blue team Code"
-  elsif input == 3
-    puts "Grey code, next turn."
-  elsif input == 4
-    red_team_score = 0
-    puts "Game over!"
+    red_team_turn
+    # blue_team_turn
   end
-end
 
-def blue_team_turn(input)
-  if input == 1
-    blue_team_score -= 1
-    puts "Correct"
-  elsif input == 2
-    red_team_score -= 1
-    puts "That was a red team Code"
-  elsif input == 3
-    puts "Grey code, next turn."
-  elsif input == 4
-    blue_team_score = 0
-    puts "Game over!"
-  end
+
 end
 
 
