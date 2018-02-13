@@ -3,24 +3,25 @@ class Color < ActiveRecord::Base
   has_many :words, through: :game_positions
 
   def self.count_team_red
-    red = GamePosition.where(color_id: 1).count
-    # red = Color.find(1)
-    # red.counter = GamePosition.where(color_id: 1).count
-    # red.save
+    # red = GamePosition.where(color_id: 1, guessed = false).count
+    red = Color.find(1)
+    red.counter = GamePosition.where(color_id: 1, guessed: false).count
+    red.save
+    red.counter
   end
 
   def self.count_team_blue
-    blue = GamePosition.where(color_id: 2).count
-    # blue = Color.find(2)
-    # blue.counter = GamePosition.where(color_id: 2).count
-    # blue.save
+    # blue = GamePosition.where(color_id: 2, guessed = false).count
+    blue = Color.find(2)
+    blue.counter = GamePosition.where(color_id: 2, guessed: false).count
+    blue.save
+    blue.counter
   end
 
   def self.set_counter
     count_team_red
     count_team_blue
   end
-
 
   def subtract_counter()
 

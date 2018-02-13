@@ -3,7 +3,7 @@ class GamePosition < ActiveRecord::Base
   belongs_to :color
 
   def self.first_player
-    [1,2].sample(1)[0]
+    [1,2].sample
   end
 
   def self.create_new_game
@@ -72,6 +72,14 @@ class GamePosition < ActiveRecord::Base
     else
       word_string
     end
+  end
+
+  def self.red_unguessed_words
+    GamePosition.where(guessed: false, color_id: 1)
+  end
+
+  def self.blue_unguessed_words
+    GamePosition.where(guessed: false, color_id: 2)
   end
 
 end

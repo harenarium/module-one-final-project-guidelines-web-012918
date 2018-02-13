@@ -47,6 +47,10 @@ class Word < ActiveRecord::Base
     self.update_all "in_game = 'false'"
   end
 
+  def guess
+    self.game_positions[0].update(guessed: true)
+  end
+
   def self.guessed_word_in_game(guess) #returns found word or false?
     word_found = false
     GamePosition.where(guessed: false).map{ |gp|
@@ -57,5 +61,15 @@ class Word < ActiveRecord::Base
         return word
       end
     }
-      word_found #== false
+    word_found #== false
+  end
+
+  def self.red_clue
+    GamePosition.red_unguessed_words.sample.word.word_clue
+  end
+
+  def self.blue_clue
+    GamePosition.blue_unguessed_words.sample.word.word_clue
+  end
+
 end

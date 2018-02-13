@@ -51,20 +51,30 @@ def blue_team_guess
   puts "Team Blue, enter your guess:"
   gets.chomp.downcase
 end
+# use this later
+# while Color.count_team_blue>0 && Color.count_team_blue>0
 
 def user_turns
-  red_team_score = Color.count_team_red
-  blue_team_score = Color.count_team_blue
+  input = Word.guessed_word_in_game(red_team_guess)
+  until input
+    puts "That is not a valid choice"
+    input = Word.guessed_word_in_game(red_team_guess)
+  end
+  Word.find_by(word: input).guess
+  Color.set_counter
+  display_board(GamePosition.formatted_words_array)
+  # red_team_score = Color.count_team_red
+  # blue_team_score = Color.count_team_blue
   # binding.pry
   # round = 1
-  while red_team_score > 0 && blue_team_score > 0
-    red_team_turn(Word.find_by(word: red_team_guess).game_positions[0].color_id)
+  # while red_team_score > 0 && blue_team_score > 0
+  #   red_team_turn(Word.find_by(word: red_team_guess).game_positions[0].color_id)
   #   # binding.pry
   #   # blue_input = Word.find_by(word: blue_team_guess).game_positions[0].color_id
   #   # blue_team_turn(blue_input)
   #   puts "Round #{round}!"
   #   # round += 1
-  end
+  # end
 end
 
 def red_team_turn(input)
