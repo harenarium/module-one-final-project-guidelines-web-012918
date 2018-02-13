@@ -1,5 +1,10 @@
 require_relative "../config/environment.rb"
 
+Color.create(color: "red")
+Color.create(color: "blue")
+Color.create(color: "gray")
+Color.create(color: "black")
+
 sa1 = ["EAGLE", "GAME", "WASHER", "BERRY", "SOLDIER", "SPRING", "PIANO", "COURT", "SPOT", "ENGINE", "SHAKESPEARE", "PAPER", "SOUND", "IVORY", "AMERICA", "JUPITER", "SHARK", "EUROPE", "SOUL"]
 sa2 = ["SQUARE", "GREECE", "CIRCLE", "BED", "PLASTIC", "DWARF", "AIR", "CALF", "CLIFF", "LAB", "RULER", "BOMB", "GAS", "CAST", "MOSCOW", "CHANGE", "PALM", "TRIP", "CRANE"]
 sa3 = ["ROSE", "FOREST", "BOTTLE", "WALL", "PANTS", "WIND", "GRACE", "KID", "OLIVE", "TABLE", "TIE", "SPINE", "PRESS", "WEB", "FAN", "FIGHTER", "WAKE", "WHALE", "DIAMOND"]

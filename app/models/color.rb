@@ -1,23 +1,23 @@
-class Team < ActiveRecord::Base
+class Color < ActiveRecord::Base
   has_many :game_positions
   has_many :words, through: :game_positions
 
 
-  # 
-  # def team.guess(word) ##cli gets this from user
+  #
+  # def color.guess(word) ##cli gets this from user
   #   if word.game_positions.color.counter == 1
   #     winner(word.game_positions.color)
   #   else
   #     word.game_positions.color.counter -= 1
-  #     team.switch()
+  #     color.switch()
   #   end
   # end
   #
-  # def team.winner(team_color)
-  #   puts "#{team_color} team wins!"
+  # def color.winner(color_color)
+  #   puts "#{color_color} color wins!"
   # end
   #
-  # def team.start
+  # def color.start
   #
   # end
 

@@ -1,6 +1,12 @@
 require_relative '../config/environment'
 
 welcome
+
+Word.random_arr_of_words
+#or words from seeds
+GamePosition.create_new_game
+
+
 #populate game words, clues, color positions v, default status is unflipped
 #
 # first_player = [r,b].sample
@@ -9,8 +15,10 @@ welcome
 
 
 
-board = ["washington", "hat", "scuba diver", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-display_board(board)
+# board = ["washington", "hat", "scuba diver", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+
+
+display_board(GamePosition.words_array)
 
 
 

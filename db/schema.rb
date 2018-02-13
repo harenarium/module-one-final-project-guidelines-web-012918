@@ -12,17 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20180212211423) do
 
+  create_table "colors", force: :cascade do |t|
+    t.string  "color"
+    t.integer "counter"
+  end
+
   create_table "game_positions", force: :cascade do |t|
-    t.integer "x_position"
-    t.integer "y_position"
     t.integer "word_id"
     t.integer "color_id"
     t.boolean "guessed"
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string  "color"
-    t.integer "counter"
   end
 
   create_table "words", force: :cascade do |t|
