@@ -17,7 +17,7 @@ class Word < ActiveRecord::Base
   end
 
   def random_arr_of_words
-    arr = []
+    arr = [] 
     url = "http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=9&limit=25&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
     all_random_words = RestClient.get(url)
     random_words = JSON.parse(all_random_words)
