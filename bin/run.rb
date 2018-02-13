@@ -2,11 +2,13 @@ require_relative '../config/environment'
 
 welcome
 Word.reset_words
-Word.random_arr_of_words
+select_words
+# Word.random_arr_of_words
 #or Word.random_words_from_seed
 GamePosition.create_new_game
-
+Color.set_counter
 display_board(GamePosition.formatted_words_array)
+
 
 
 

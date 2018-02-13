@@ -2,37 +2,39 @@ def welcome
   puts "Welcome to Codenames!"
 end
 
-
-def get_guess_from_user
-  puts "please enter your guess as a word or coordinates"
-  gets.chomp.downcase
-
-
+def goodbye
+  puts "Goodbye!"
 end
 
-def get_words_from_user
-  puts "please enter 25 words seperated by commas"
-  array = gets.chomp.downcase
-end
+#
+# def get_guess_from_user
+#   puts "please enter your guess as a word or coordinates"
+#   gets.chomp.downcase
+#
+#
+# end
+#
+# def get_words_from_user
+#   puts "please enter 25 words seperated by commas"
+#   array = gets.chomp.downcase
+# end
 
 
-def format_color(word)
-  if word.guessed
-    case word.color
-    when "red"
-      "\e[41m#{word}\e[0m"
-    when "blue"
-      "\e[44m#{word}\e[0m"
-    when "gray"
-      "\e[47m#{word}\e[0m"
-    when "black"
-      "\e[40m#{word}\e[0m"
+
+def select_words
+  input = ""
+  while input != "1" && input != "2" && input != "q"
+    puts "press 1 for EASY (seeded random words), press 2 for HARD (really random words). q to QUIT"
+    input = gets.chomp
+    if input == "1"
+      Word.random_words_from_seed
+    elsif input == "2"
+      Word.random_arr_of_words
+    elsif input == "q"
+      goodbye
     end
-  # else
-    #no format
   end
 end
-
 
 def display_board(board)
   puts "          1             2             3             4             5      "

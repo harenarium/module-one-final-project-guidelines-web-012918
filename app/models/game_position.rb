@@ -2,12 +2,16 @@ class GamePosition < ActiveRecord::Base
   belongs_to :word
   belongs_to :color
 
+  def self.first_player
+    [1,2].sample(1)[0]
+  end
+
   def self.create_new_game
     self.destroy_all
-    first_color = [1,2].sample(1)
-    color_distribution = [1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4] << first_color[0]
+    color_distribution = [1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4] << first_player
     random_color = color_distribution.sample(25)
-    Word.words_in_game.each {|word|
+
+    Word.words_in_game.sample(25).each {|word|
       gp = GamePosition.new
       gp.word_id = word.id
       gp.guessed = false

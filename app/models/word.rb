@@ -46,4 +46,16 @@ class Word < ActiveRecord::Base
   def self.reset_words
     self.update_all "in_game = 'false'"
   end
+
+  def self.guessed_word_in_game(guess) #returns found word or false?
+    word_found = false
+    GamePosition.where(guessed: false).map{ |gp|
+      gp.word.word
+    }.each{ |word|
+      if word.downcase == guess.downcase
+        word_found = true
+        return word
+      end
+    }
+      word_found #== false
 end
