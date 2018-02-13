@@ -30,6 +30,8 @@ seed_array = [sa1, sa2, sa3, sa4, sa5, sa6, sa7, sa8, sa9, sa10, sa11, sa12, sa1
 seed_array.each do |array|
   array.each do |seed|
     word = Word.find_or_create_by(word: seed) #354 became 351, means 3 pairs of duplicates
+    word.in_game = false
+    word.save
     # word = Word.new
     # word.word = seed
     # word.save

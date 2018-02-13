@@ -42,8 +42,8 @@ class Word < ActiveRecord::Base
   def self.words_in_game #=> arr of obj in game
     self.where(in_game: true)
   end
-  #
-  # def self.array_of_words #=> arr of strings in game
-  #   words_in_game.pluck(:word)
-  # end
+
+  def self.reset_words
+    self.update_all "in_game = 'false'"
+  end
 end

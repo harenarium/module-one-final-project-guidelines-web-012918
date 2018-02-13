@@ -1,23 +1,16 @@
 require_relative '../config/environment'
 
 welcome
-
+Word.reset_words
 Word.random_arr_of_words
-#or words from seeds
+#or Word.random_words_from_seed
 GamePosition.create_new_game
 
-#populate game words, clues, color positions v, default status is unflipped
-#
-# first_player = [r,b].sample
-# [b,b,b,b,b,b,b,b,r,r,r,r,r,r,r,r,g,g,g,g,g,g,g,b] + first_player
-# above array .sample(25)
+display_board(GamePosition.formatted_words_array)
 
 
 
-# board = ["washington", "hat", "scuba diver", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 
-
-display_board(GamePosition.words_array)
 
 get_guess_from_user_red
 get_guess_from_user_blue
