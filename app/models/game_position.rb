@@ -82,4 +82,8 @@ class GamePosition < ActiveRecord::Base
     GamePosition.where(guessed: false, color_id: 2)
   end
 
+  def self.black_card_guessed
+    GamePosition.find_by(color_id: 4).guessed
+  end
+
 end

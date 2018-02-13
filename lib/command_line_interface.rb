@@ -97,11 +97,23 @@ def user_turns
   Word.find_by(word: input).guess
   Color.set_counter
   display_board(GamePosition.formatted_words_array)
+
+  input = Word.guessed_word_in_game(blue_team_guess)
+  until input
+    puts "That is not a valid choice"
+    input = Word.guessed_word_in_game(blue_team_guess)
+  end
+  Word.find_by(word: input).guess
+  Color.set_counter
+  display_board(GamePosition.formatted_words_array)
+end
+
+
   # red_team_score = Color.count_team_red
   # blue_team_score = Color.count_team_blue
   # binding.pry
   # round = 1
-  
+
   # while red_team_score > 0 && blue_team_score > 0
   #   red_team_turn(Word.find_by(word: red_team_guess).game_positions[0].color_id)
   #   # binding.pry
@@ -110,14 +122,14 @@ def user_turns
   #   puts "Round #{round}!"
   #   # round += 1
   # end
-end
+# end
 
-    red_team_turn
+    # red_team_turn
     # blue_team_turn
-  end
+  # end
 
 
-end
+# end
 
 
 
