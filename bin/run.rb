@@ -15,7 +15,7 @@ GamePosition.create_new_game
 
 
 # board = ["washington", "hat", "scuba diver", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-
+ 
 
 display_board(GamePosition.words_array)
 
