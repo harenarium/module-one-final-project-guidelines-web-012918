@@ -4,8 +4,10 @@ end
 
 
 def get_guess_from_user
-  puts "please enter your guess"
+  puts "please enter your guess as a word or coordinates"
   gets.chomp.downcase
+  
+
 end
 
 def get_words_from_user
