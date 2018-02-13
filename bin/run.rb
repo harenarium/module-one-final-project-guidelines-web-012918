@@ -6,7 +6,6 @@ Word.random_arr_of_words
 #or words from seeds
 GamePosition.create_new_game
 
-
 #populate game words, clues, color positions v, default status is unflipped
 #
 # first_player = [r,b].sample
@@ -20,7 +19,8 @@ GamePosition.create_new_game
 
 display_board(GamePosition.words_array)
 
-
+get_guess_from_user_red
+get_guess_from_user_blue
 
 #
 # character = get_guess_from_user

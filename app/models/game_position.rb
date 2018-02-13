@@ -1,6 +1,6 @@
 class GamePosition < ActiveRecord::Base
   belongs_to :word
-  belongs_to :team
+  belongs_to :color
 
   def self.create_new_game
     #drop the previous table in db

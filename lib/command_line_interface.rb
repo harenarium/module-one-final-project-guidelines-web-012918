@@ -3,12 +3,33 @@ def welcome
 end
 
 
-def get_guess_from_user
-  puts "please enter your guess as a word or coordinates"
-  gets.chomp.downcase
-  
+# def get_guess_from_user
+#   puts "please enter your guess as a word or coordinates"
+#   gets.chomp.downcase
+#
+#
+# end
 
+####d
+def get_guess_from_user_red
+  puts "Team Red, enter your guess:"
+  gets.chomp.downcase
 end
+
+def get_guess_from_user_blue
+  puts "Team Blue, enter your guess:"
+  gets.chomp.downcase
+end
+
+# def each_turn
+#   r = Color.count_team_red
+#   b = Color.count_team_blue
+#   while r > 0 || b > 0
+#     if
+#   end
+# end
+
+####d
 
 def get_words_from_user
   puts "please enter 25 words seperated by commas"
