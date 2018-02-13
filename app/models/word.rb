@@ -46,4 +46,5 @@ class Word < ActiveRecord::Base
   def self.reset_words
     self.update_all "in_game = 'false'"
   end
+
 end
