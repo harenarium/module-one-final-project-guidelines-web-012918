@@ -9,6 +9,7 @@ GamePosition.create_new_game
 Color.set_counter
 display_board(GamePosition.formatted_words_array)
 
+user_turns
 
 
 
