@@ -33,12 +33,12 @@ def get_words_from_user
 end
 
 def red_team_guess
-  puts "Team Red, enter your guess:"
+  puts "\e[31mTeam Red\e[0m, enter your guess:"
   gets.chomp.downcase
 end
 
 def blue_team_guess
-  puts "Team Blue, enter your guess:"
+  puts "\e[34mTeam Blue\e[0m, enter your guess:"
   gets.chomp.downcase
 end
 # use this later
@@ -53,7 +53,7 @@ def computer_turn(turn_counter)
     end
     number = 1
     # clue = Word.red_clue
-    puts "Team Red, your clue is: "+clue+ ", " + number.to_s
+    puts "\e[31mTeam Red\e[0m, your clue is: "+clue+ ", " + number.to_s
 
   elsif turn_counter.even? #blue turn
     # clue = Word.blue_clue
@@ -63,7 +63,7 @@ def computer_turn(turn_counter)
       e.response
     end
     number = 1
-    puts "Team Blue, your clue is: "+clue+ ", " + number.to_s
+    puts "\e[34mTeam Blue\e[0m, your clue is: "+clue+ ", " + number.to_s
   end
   number
 end
@@ -78,16 +78,19 @@ def user_turns(turn_counter) ##working
       input = Word.guessed_word_in_game(red_team_guess)
     end
     if input != "1"
-      turn_counter = Word.find_by(word: input).guess(turn_counter)
+      guess_output = Word.find_by(word: input).guess(turn_counter)
+      turn_counter = guess_output[0]
+      message = guess_output[1]
       Color.set_counter
     elsif input == "1"
       turn_counter +=1
-      puts "Team Red skipped their turn"
+      message = "\e[31mTeam Red\e[0m skipped their turn"
     end
-    ClearPage.clear
-    display_board(GamePosition.formatted_words_array)
-    Color.read_score
-    turn_counter
+      ClearPage.clear #2
+    display_board(GamePosition.formatted_words_array) #3
+    puts message
+    Color.read_score #1
+    turn_counter #4
   elsif turn_counter.even?
     # puts  "Team Blue, your clue is: "+Word.blue_clue
     input = Word.guessed_word_in_game(blue_team_guess)
@@ -96,26 +99,29 @@ def user_turns(turn_counter) ##working
       input = Word.guessed_word_in_game(blue_team_guess)
     end
     if input != "1"
-      turn_counter = Word.find_by(word: input).guess(turn_counter)
+      guess_output = Word.find_by(word: input).guess(turn_counter)
+      turn_counter = guess_output[0]
+      message = guess_output[1]
       Color.set_counter
     elsif input == "1"
       turn_counter +=1
-      puts "Team Blue skipped their turn"
+      message =  "\e[34mTeam Blue\e[0m skipped their turn"
     end
     ClearPage.clear
     display_board(GamePosition.formatted_words_array)
+    puts message
     Color.read_score
     turn_counter
   end
 end
 
-def who_won
+def who_won(turn_counter)
   if GamePosition.black_card_guessed
-    puts turn_counter%2 == 1 ? "Red Team, you lose!" : "Blue Team, you lose!"
+    puts turn_counter%2 == 1 ? "\e[31mTeam Red\e[0m, you lose!" : "\e[34mTeam Blue\e[0m, you lose!"
   elsif Color.count_team_red ==0
-    puts "Red Team, you win!"
+    puts "\e[31mTeam Red\e[0m, you win!"
   elsif Color.count_team_blue == 0
-    puts "Blue Team, you win!"
+    puts "\e[34mTeam Blue\e[0m, you win!"
   end
 end
 

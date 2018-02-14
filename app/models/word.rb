@@ -59,17 +59,17 @@ class Word < ActiveRecord::Base
   def guess(turn_counter)
     self.game_positions[0].update(guessed: true)
     if self.game_positions[0].color_id == 4 #black color
-      puts "That was the Assassin Card! Game over!"
-      return turn_counter
+      # puts "That was the Assasin Card! Game over!"
+      return [turn_counter, "That was the Assasin Card! Game over!"]
     elsif self.game_positions[0].color_id == 3 #grey color
-      puts "That was an innocent bystander. Your turn ends."
-      return turn_counter +=1
+      # puts "That was an innocent bystander. Your turn ends."
+      return [turn_counter +1,"That was an innocent bystander. Your turn ends."]
     elsif self.game_positions[0].color_id%2 == turn_counter%2 #same color
       puts "You got it! Keep going!"
-      return turn_counter
+      return [turn_counter, "You got it! Keep going!"]
     elsif self.game_positions[0].color_id%2 != turn_counter%2 #dif color
       puts "Oh no! That was the other team's card! Your turn ends and they get a point."
-      return turn_counter +=1
+      return [turn_counter + 1, "Oh no! That was the other team's card! Your turn ends and they get a point."]
     end
   end
 
