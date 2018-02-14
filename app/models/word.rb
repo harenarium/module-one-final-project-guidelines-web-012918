@@ -13,14 +13,14 @@ class Word < ActiveRecord::Base
     url = "https://api.datamuse.com/words?rel_syn=#{self.word}" #gets the clue
     all_clues = RestClient.get(url)
     clues_hash = JSON.parse(all_clues)
-    if !clues_hash.empty?
-      # url = "https://api.datamuse.com/words?rel_trg=#{self.word}" #gets the clue
-      # all_clues = RestClient.get(url)
-      # clues_hash = JSON.parse(all_clues)
-      # if clues_hash.empty?
+    if clues_hash.empty?
+      url = "https://api.datamuse.com/words?rel_trg=#{self.word}" #gets the clue
+      all_clues = RestClient.get(url)
+      clues_hash = JSON.parse(all_clues)
+      if clues_hash.empty?
         return "This word has no synonym"
-      # end
-      # return clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first + "."
+      end
+      return clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first + "."
     end
     clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first
     # if clue ==self.word

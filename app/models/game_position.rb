@@ -2,11 +2,8 @@ class GamePosition < ActiveRecord::Base
   belongs_to :word
   belongs_to :color
 
-  def self.first_player
-    [1,2].sample
-  end
-
   def self.create_new_game
+    first_player = [1,2].sample
     self.destroy_all
     color_distribution = [1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4] << first_player
     random_color = color_distribution.sample(25)
@@ -18,6 +15,7 @@ class GamePosition < ActiveRecord::Base
       gp.color_id = random_color.pop
       gp.save
     }
+    first_player
   end
 
   def self.formatted_words_array
@@ -25,10 +23,6 @@ class GamePosition < ActiveRecord::Base
       gp.format_color(gp.formatted_word, gp.color_id)
     }
   end
-
-  # def self.colors_array ##
-  #   self.all.color_id.pluck(:color)
-  # end
 
   def formatted_word
     case self.word.word.length

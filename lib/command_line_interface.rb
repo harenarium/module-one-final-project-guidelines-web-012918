@@ -11,21 +11,6 @@ def goodbye
 end
 
 
-#
-# def get_guess_from_user
-#   puts "please enter your guess as a word or coordinates"
-#   gets.chomp.downcase
-#
-#
-# end
-#
-# def get_words_from_user
-#   puts "please enter 25 words seperated by commas"
-#   array = gets.chomp.downcase
-# end
-
-
-
 def select_words
   input = ""
   while input != "1" && input != "2" #&& input != "q"
@@ -93,33 +78,34 @@ def blue_team_turn
     end
 end
 
-# def user_turns ##working
-#   puts "Team Red, your clue is: "+Word.red_clue
-#   input = Word.guessed_word_in_game(red_team_guess)
-#   until input
-#     puts "That is not a valid choice"
-#     input = Word.guessed_word_in_game(red_team_guess)
-#   end
-#   Word.find_by(word: input).guess
-#   Color.set_counter
-#   display_board(GamePosition.formatted_words_array)
-#
-#   puts  "Team Blue, your clue is: "+Word.blue_clue
-#   input = Word.guessed_word_in_game(blue_team_guess)
-#   until input
-#     puts "That is not a valid choice"
-#     input = Word.guessed_word_in_game(blue_team_guess)
-#   end
-#   Word.find_by(word: input).guess
-#   Color.set_counter
-#   display_board(GamePosition.formatted_words_array)
-# end
+def computer_turn(turn_counter)
+  if turn_counter.odd? #red turn
+    begin
+      clue = Word.red_clue
+    rescue => e
+      e.response
+    end
+    number = 1
+    # clue = Word.red_clue
+    puts "Team Red, your clue is: "+clue+ ", " + number.to_s
 
+  elsif turn_counter.even? #blue turn
+    # clue = Word.blue_clue
+    begin
+      clue = Word.blue_clue
+    rescue => e
+      e.response
+    end
+    number = 1
+    puts "Team Blue, your clue is: "+clue+ ", " + number.to_s
+  end
+  number
+end
 
 def user_turns(turn_counter) ##working
 
   if turn_counter.odd?
-    puts "Team Red, your clue is: "+Word.red_clue
+    # puts "Team Red, your clue is: "+Word.red_clue
     input = Word.guessed_word_in_game(red_team_guess)
     until input
       puts "That is not a valid choice"
@@ -132,11 +118,11 @@ def user_turns(turn_counter) ##working
       turn_counter +=1
       puts "Team Red skipped their turn"
     end
-    Color.read_score
     display_board(GamePosition.formatted_words_array)
+    Color.read_score
     turn_counter
   elsif turn_counter.even?
-    puts  "Team Blue, your clue is: "+Word.blue_clue
+    # puts  "Team Blue, your clue is: "+Word.blue_clue
     input = Word.guessed_word_in_game(blue_team_guess)
     until input
       puts "That is not a valid choice"
@@ -149,35 +135,44 @@ def user_turns(turn_counter) ##working
       turn_counter +=1
       puts "Team Blue skipped their turn"
     end
-    Color.read_score
     display_board(GamePosition.formatted_words_array)
+    Color.read_score
     turn_counter
   end
 end
 
+def who_won
+  if GamePosition.black_card_guessed
+    puts turn_counter%2 == 1 ? "Red Team, you lose!" : "Blue Team, you lose!"
+  elsif Color.count_team_red ==0
+    puts "Red Team, you win!"
+  elsif Color.count_team_blue == 0
+    puts "Blue Team, you win!"
+  end
+end
 
 def display_board(board)
   puts "          1             2             3             4             5      "
-  puts "  -----------------------------------------------------------------------"
+  puts "  +-------------+-------------+-------------+-------------+-------------+"
   puts "  |             |             |             |             |             |"
   puts "A | #{board[0]} | #{board[1]} | #{board[2]} | #{board[3]} | #{board[4]} |"
   puts "  |             |             |             |             |             |"
-  puts "  -----------------------------------------------------------------------"
+  puts "  +-------------+-------------+-------------+-------------+-------------+"
   puts "  |             |             |             |             |             |"
   puts "B | #{board[5]} | #{board[6]} | #{board[7]} | #{board[8]} | #{board[9]} |"
   puts "  |             |             |             |             |             |"
-  puts "  -----------------------------------------------------------------------"
+  puts "  +-------------+-------------+-------------+-------------+-------------+"
   puts "  |             |             |             |             |             |"
   puts "C | #{board[10]} | #{board[11]} | #{board[12]} | #{board[13]} | #{board[14]} |"
   puts "  |             |             |             |             |             |"
-  puts "  -----------------------------------------------------------------------"
+  puts "  +-------------+-------------+-------------+-------------+-------------+"
   puts "  |             |             |             |             |             |"
   puts "D | #{board[15]} | #{board[16]} | #{board[17]} | #{board[18]} | #{board[19]} |"
   puts "  |             |             |             |             |             |"
-  puts "  -----------------------------------------------------------------------"
+  puts "  +-------------+-------------+-------------+-------------+-------------+"
   puts "  |             |             |             |             |             |"
   puts "E | #{board[20]} | #{board[21]} | #{board[22]} | #{board[23]} | #{board[24]} |"
   puts "  |             |             |             |             |             |"
-  puts "  -----------------------------------------------------------------------"
+  puts "  +-------------+-------------+-------------+-------------+-------------+"
 
 end
