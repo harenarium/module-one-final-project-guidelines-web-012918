@@ -14,7 +14,7 @@ until GamePosition.black_card_guessed || Color.count_team_red ==0 || Color.count
   until clue_number == 0
     compare = turn_counter
     turn_counter = user_turns(turn_counter)
-    if GamePosition.black_card_guessed || turn_counter != compare
+    if GamePosition.black_card_guessed|| Color.count_team_red ==0 || Color.count_team_blue == 0 || turn_counter != compare
       clue_number = 0
     elsif turn_counter == compare && clue_number ==1
       clue_number -=1
@@ -24,4 +24,4 @@ until GamePosition.black_card_guessed || Color.count_team_red ==0 || Color.count
     end
   end
 end
-who_won
+who_won(turn_counter)
