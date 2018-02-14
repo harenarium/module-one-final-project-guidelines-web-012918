@@ -1,7 +1,7 @@
 def welcome
   ClearPage.clear
   puts "Welcome to Codenames!"
-  puts "Your mission, should you choose to accept it, is to contact all our agents in the field before your opponent finds all of theirs. Agents can only be identified by their code names so the spy master will try to give you any information he can. Watch out for innocent bystanders, enemy spies, and the assasin."
+  puts "Your mission, should you choose to accept it, is to extract all our agents from the field before your opponent extracts all of theirs. Agents can only be identified by their code names so the spy master will try to give you any information he can. Watch out for innocent bystanders, enemy spies, and the assasin."
 
 end
 
