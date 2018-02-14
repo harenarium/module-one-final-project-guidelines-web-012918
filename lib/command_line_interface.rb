@@ -26,8 +26,8 @@ end
 
 def select_words
   input = ""
-  while input != "1" && input != "2" && input != "q"
-    puts "press 1 for EASY (seeded random words), press 2 for HARD (really random words). q to QUIT"
+  while input != "1" && input != "2" #&& input != "q"
+    puts "press 1 for EASY (seeded random words), press 2 for HARD (really random words)." #q to QUIT
     input = gets.chomp
     if input == "1"
       Word.random_words_from_seed
@@ -122,8 +122,13 @@ def user_turns(turn_counter) ##working
       puts "That is not a valid choice"
       input = Word.guessed_word_in_game(red_team_guess)
     end
-    turn_counter = Word.find_by(word: input).guess(turn_counter)
-    Color.set_counter
+    if input != "1"
+      turn_counter = Word.find_by(word: input).guess(turn_counter)
+      Color.set_counter
+    elsif input == "1"
+      turn_counter +=1
+      puts "Team Red skipped their turn"
+    end
     Color.read_score
     display_board(GamePosition.formatted_words_array)
     turn_counter
@@ -134,8 +139,13 @@ def user_turns(turn_counter) ##working
       puts "That is not a valid choice"
       input = Word.guessed_word_in_game(blue_team_guess)
     end
-    turn_counter = Word.find_by(word: input).guess(turn_counter)
-    Color.set_counter
+    if input != "1"
+      turn_counter = Word.find_by(word: input).guess(turn_counter)
+      Color.set_counter
+    elsif input == "1"
+      turn_counter +=1
+      puts "Team Blue skipped their turn"
+    end
     Color.read_score
     display_board(GamePosition.formatted_words_array)
     turn_counter
