@@ -1,7 +1,9 @@
 def welcome
   puts "Welcome to Codenames!"
-  puts "Your mission, should you choose to accept it, is to extract all our agents from the field before your opponent extracts all of theirs. Agents can only be identified by their code names so the spy master will try to give you any information he can. Watch out for innocent bystanders, enemy spies, and the assasin."
-
+  # puts "Your mission, should you choose to accept it, is to extract all our agents from the field before your opponent extracts all of theirs. Agents can only be identified by their code names so the spy master will try to give you any information he can. Watch out for innocent bystanders, enemy spies, and the assasin."
+  print "1 "
+  print "2 "
+  system("say Your mission. should you choose to accept it, is to make contact with all of our agents in the field before your opponent contacts all of theirs. You are passing on vital information that we don’t want in enemy hand. Available to you are the locations of 25 persons of interest identified only by their code names. Among them stand your fellow agents, enemy spies, and random civilians. Oh, and there’s an assassin. The enemy is monitoring our communication lines so communication will be limited but the spy master will send you what information we can. Be aware, the enemy may try to feed false information to your team. As always, should any member of your team be caught or killed, the secretary will disavow any knowledge of your actions. Good luck!")
 end
 
 def goodbye
