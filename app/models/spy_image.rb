@@ -1,5 +1,20 @@
 def load_image
   ClearPage.clear
+  puts ".*"
+
+  50.times do
+    puts "|"
+    sleep(0.1)
+  end
+
+  print "
+
+        ,--.!,
+    __/    -*-
+,d08b.     '|`
+0088MM
+`9MMP' "
+
   puts "                                                                                                    "
   sleep(0.05)
   puts "                                        ````````````````````"
