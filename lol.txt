@@ -1,0 +1,257 @@
+print "Your ”
+sleep(0.04)
+print “mission, ”
+sleep(0.04)
+print “should ”
+sleep(0.04)
+print “you ”
+sleep(0.04)
+print “choose ”
+sleep(0.04)
+print “to ”
+sleep(0.04)
+print “accept ”
+sleep(0.04)
+print “it, ”
+sleep(0.04)
+print “is ”
+sleep(0.04)
+print “to ”
+sleep(0.04)
+print “make ”
+sleep(0.04)
+print “contact ”
+sleep(0.04)
+print “with ”
+sleep(0.04)
+print “all ”
+sleep(0.04)
+print “of ”
+sleep(0.04)
+print “our ”
+sleep(0.04)
+print “agents ”
+sleep(0.04)
+print “in ”
+sleep(0.04)
+print “the ”
+sleep(0.04)
+print “field ”
+sleep(0.04)
+print “before ”
+sleep(0.04)
+print “your ”
+sleep(0.04)
+print “opponent ”
+sleep(0.04)
+print “contacts ”
+sleep(0.04)
+print “all ”
+sleep(0.04)
+print “of ”
+sleep(0.04)
+print “theirs. ”
+sleep(0.04)
+print “You ”
+sleep(0.04)
+print “are ”
+sleep(0.04)
+print “passing ”
+sleep(0.04)
+print “on ”
+sleep(0.04)
+print “vital ”
+sleep(0.04)
+print “information ”
+sleep(0.04)
+print “that ”
+sleep(0.04)
+print “we ”
+sleep(0.04)
+print “don’t ”
+sleep(0.04)
+print “want ”
+sleep(0.04)
+print “in ”
+sleep(0.04)
+print “enemy ”
+sleep(0.04)
+print “hand. ”
+sleep(0.04)
+print “Available ”
+sleep(0.04)
+print “to ”
+sleep(0.04)
+print “you ”
+sleep(0.04)
+print “are ”
+sleep(0.04)
+print “the ”
+sleep(0.04)
+print “locations ”
+sleep(0.04)
+print “of ”
+sleep(0.04)
+print “25 ”
+sleep(0.04)
+print “persons ”
+sleep(0.04)
+print “of ”
+sleep(0.04)
+print “interest ”
+sleep(0.04)
+print “identified ”
+sleep(0.04)
+print “only ”
+sleep(0.04)
+print “by ”
+sleep(0.04)
+print “their ”
+sleep(0.04)
+print “code ”
+sleep(0.04)
+print “names. ”
+sleep(0.04)
+print “Among ”
+sleep(0.04)
+print “them ”
+sleep(0.04)
+print “stand ”
+sleep(0.04)
+print “your ”
+sleep(0.04)
+print “fellow ”
+sleep(0.04)
+print “agents, enemy ”
+sleep(0.04)
+print “spies, ”
+sleep(0.04)
+print “and ”
+sleep(0.04)
+print “random ”
+sleep(0.04)
+print “civilians. ”
+sleep(0.04)
+print “Oh, ”
+sleep(0.04)
+print “and ”
+sleep(0.04)
+print “there’s ”
+sleep(0.04)
+print “an ”
+sleep(0.04)
+print “assassin. ”
+sleep(0.04)
+print “The ”
+sleep(0.04)
+print “enemy ”
+sleep(0.04)
+print “is ”
+sleep(0.04)
+print “monitoring ”
+sleep(0.04)
+print “our ”
+sleep(0.04)
+print “communication ”
+sleep(0.04)
+print “lines ”
+sleep(0.04)
+print “so ”
+sleep(0.04)
+print “communication ”
+sleep(0.04)
+print “will ”
+sleep(0.04)
+print “be ”
+sleep(0.04)
+print “limited ”
+sleep(0.04)
+print “but ”
+sleep(0.04)
+print “the ”
+sleep(0.04)
+print “spy ”
+sleep(0.04)
+print “master ”
+sleep(0.04)
+print “will ”
+sleep(0.04)
+print “send ”
+sleep(0.04)
+print “you ”
+sleep(0.04)
+print “what ”
+sleep(0.04)
+print “information ”
+sleep(0.04)
+print “we ”
+sleep(0.04)
+print “can. ”
+sleep(0.04)
+print “Be ”
+sleep(0.04)
+print “aware, ”
+sleep(0.04)
+print “the ”
+sleep(0.04)
+print “enemy ”
+sleep(0.04)
+print “may ”
+sleep(0.04)
+print “try ”
+sleep(0.04)
+print “to ”
+sleep(0.04)
+print “feed ”
+sleep(0.04)
+print “false ”
+sleep(0.04)
+print “information ”
+sleep(0.04)
+print “to ”
+sleep(0.04)
+print “your ”
+sleep(0.04)
+print “team. ”
+sleep(0.04)
+print “As ”
+sleep(0.04)
+print “always, ”
+sleep(0.04)
+print “should ”
+sleep(0.04)
+print “any ”
+sleep(0.04)
+print “member ”
+sleep(0.04)
+print “of ”
+sleep(0.04)
+print “your ”
+sleep(0.04)
+print “team ”
+sleep(0.04)
+print “be ”
+sleep(0.04)
+print “caught ”
+sleep(0.04)
+print “or ”
+sleep(0.04)
+print “killed, ”
+sleep(0.04)
+print “the ”
+sleep(0.04)
+print “secretary ”
+sleep(0.04)
+print “will disavow any ”
+sleep(0.04)
+print “knowledge ”
+sleep(0.04)
+print “of ”
+sleep(0.04)
+print “your ” 
+sleep(0.04)
+print “actions. ”
+sleep(0.04)
+print “Good ”
+sleep(0.04)
+print “luck! "
