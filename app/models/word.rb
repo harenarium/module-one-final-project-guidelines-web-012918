@@ -10,17 +10,17 @@ class Word < ActiveRecord::Base
   # words.sample(25)
 
   def word_clue
-    url = "https://api.datamuse.com/words?rel_syn=#{self.word}" #gets the clue
+    url = "https://api.datamuse.com/words?rel_syn=#{self.word}" #gets the clues
     all_clues = RestClient.get(url)
     clues_hash = JSON.parse(all_clues)
-    if !clues_hash.empty?
-      # url = "https://api.datamuse.com/words?rel_trg=#{self.word}" #gets the clue
-      # all_clues = RestClient.get(url)
-      # clues_hash = JSON.parse(all_clues)
-      # if clues_hash.empty?
+    if clues_hash.empty?
+      url = "https://api.datamuse.com/words?rel_par=#{self.word}" #gets the clues
+      all_clues = RestClient.get(url)
+      clues_hash = JSON.parse(all_clues)
+      if clues_hash.empty?
         return "This word has no synonym"
-      # end
-      # return clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first + "."
+      end
+      return clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first + "."
     end
     clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first
     # if clue ==self.word
@@ -78,7 +78,7 @@ class Word < ActiveRecord::Base
     GamePosition.where(guessed: false).map{ |gp|
       gp.word.word
     }.each{ |word|
-      if word.downcase == guess.downcase
+      if word.downcase.delete(" ") == guess.downcase.delete(" ")
         word_found = true
         return word
       elsif guess == "1"

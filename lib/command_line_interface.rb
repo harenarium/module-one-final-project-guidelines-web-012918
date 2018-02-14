@@ -132,9 +132,10 @@ def user_turns(turn_counter) ##working
       turn_counter +=1
       puts "Team Red skipped their turn"
     end
-    Color.read_score
-    display_board(GamePosition.formatted_words_array)
-    turn_counter
+      ClearPage.clear #2
+    display_board(GamePosition.formatted_words_array) #3
+    Color.read_score #1
+    turn_counter #4
   elsif turn_counter.even?
     puts  "Team Blue, your clue is: "+Word.blue_clue
     input = Word.guessed_word_in_game(blue_team_guess)
@@ -149,8 +150,9 @@ def user_turns(turn_counter) ##working
       turn_counter +=1
       puts "Team Blue skipped their turn"
     end
-    Color.read_score
+    ClearPage.clear
     display_board(GamePosition.formatted_words_array)
+    Color.read_score
     turn_counter
   end
 end
