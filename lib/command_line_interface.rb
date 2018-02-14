@@ -1,5 +1,6 @@
+
 def welcome
-  puts "Welcome to Codenames!"
+  puts "\n\n" + "Welcome to Codenames!"
 end
 
 def goodbye
