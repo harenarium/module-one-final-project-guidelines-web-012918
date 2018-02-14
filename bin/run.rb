@@ -10,7 +10,6 @@ Word.reset_words
 select_words
 turn_counter = GamePosition.create_new_game   #equals 1 or 2
 Color.set_counter
-stop_music
 ClearPage.clear
 display_board(GamePosition.formatted_words_array)
 
@@ -30,3 +29,4 @@ until GamePosition.black_card_guessed || Color.count_team_red ==0 || Color.count
   end
 end
 who_won(turn_counter)
+stop_music
