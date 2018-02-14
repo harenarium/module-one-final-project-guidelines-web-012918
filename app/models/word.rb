@@ -13,10 +13,10 @@ class Word < ActiveRecord::Base
     url = "https://api.datamuse.com/words?rel_syn=#{self.word}" #gets the clue
     all_clues = RestClient.get(url)
     clues_hash = JSON.parse(all_clues)
+    if clues_hash.empty?
+      return "This word has no synonym"
+    end
     clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first
-    self.clue = clue
-    self.save
-    clue
   end
 
   def self.random_arr_of_words
@@ -47,8 +47,17 @@ class Word < ActiveRecord::Base
     self.update_all "in_game = 'false'"
   end
 
-  def guess
+  def guess(turn_counter)
     self.game_positions[0].update(guessed: true)
+    # if self.game_positions[0].color_id == 4 #black color
+    #   puts "That was the Assasin Card! Game over!"
+    # if self.game_positions[0].color_id == 3 #grey color
+    #   puts "That was an innocent bystander. Your turn ends."
+    # if self.game_positions[0].color_id%2 == turn_counter%2 #same color
+    #   puts "You got it! Keep going!"
+    # if self.game_positions[0].color_id%2 != turn_counter%2 #dif color
+    #   puts "Oh no! That was the other team's card! Your turn ends and they get a point."
+    # end
   end
 
   def self.guessed_word_in_game(guess) #returns found word or false?
