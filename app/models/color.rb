@@ -24,7 +24,7 @@ class Color < ActiveRecord::Base
   end
 
   def self.read_score
-    puts "Red Team has #{self.count_team_red} agent(s) left. Blue Team has #{self.count_team_blue} agent(s) left."
+    puts "Red Team has #{self.count_team_red} agent(s) left. Blue Team has #{self.count_team_blue} agent(s) left." + "\n\n"
   end
 
   #

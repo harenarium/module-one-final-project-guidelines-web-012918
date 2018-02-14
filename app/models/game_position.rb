@@ -20,7 +20,7 @@ class GamePosition < ActiveRecord::Base
 
   def self.formatted_words_array
     self.all.map{ |gp|
-      gp.format_color(gp.formatted_word, gp.color_id)
+      gp.format_color(gp.formatted_word.upcase, gp.color_id)
     }
   end
 
