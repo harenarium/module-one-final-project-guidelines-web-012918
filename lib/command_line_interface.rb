@@ -1,8 +1,10 @@
 def welcome
+  ClearPage.clear
   puts "Welcome to Codenames!"
 end
 
 def goodbye
+  ClearPage.clear
   puts "Goodbye!"
 end
 
@@ -32,6 +34,7 @@ def select_words
     elsif input == "2"
       Word.random_arr_of_words
     elsif input == "q"
+      ClearPage.clear
       goodbye
     end
   end
@@ -107,30 +110,6 @@ def user_turns
   Color.set_counter
   display_board(GamePosition.formatted_words_array)
 end
-
-
-  # red_team_score = Color.count_team_red
-  # blue_team_score = Color.count_team_blue
-  # binding.pry
-  # round = 1
-
-  # while red_team_score > 0 && blue_team_score > 0
-  #   red_team_turn(Word.find_by(word: red_team_guess).game_positions[0].color_id)
-  #   # binding.pry
-  #   # blue_input = Word.find_by(word: blue_team_guess).game_positions[0].color_id
-  #   # blue_team_turn(blue_input)
-  #   puts "Round #{round}!"
-  #   # round += 1
-  # end
-# end
-
-    # red_team_turn
-    # blue_team_turn
-  # end
-
-
-# end
-
 
 
 def display_board(board)
