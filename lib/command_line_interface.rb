@@ -1,6 +1,8 @@
 def welcome
   ClearPage.clear
   puts "Welcome to Codenames!"
+  puts "Your mission, should you choose to accept it, is to contact all our agents in the field before your opponent finds all of theirs. Agents can only be identified by their code names so the spy master will try to give you any information he can. Watch out for innocent bystanders, enemy spies, and the assasin."
+
 end
 
 def goodbye
@@ -26,8 +28,8 @@ end
 
 def select_words
   input = ""
-  while input != "1" && input != "2" && input != "q"
-    puts "press 1 for EASY (seeded random words), press 2 for HARD (really random words). q to QUIT"
+  while input != "1" && input != "2" #&& input != "q"
+    puts "press 1 for EASY (seeded random words), press 2 for HARD (really random words)." #q to QUIT
     input = gets.chomp
     if input == "1"
       Word.random_words_from_seed
@@ -91,24 +93,66 @@ def blue_team_turn
     end
 end
 
-def user_turns
-  input = Word.guessed_word_in_game(red_team_guess)
-  until input
-    puts "That is not a valid choice"
-    input = Word.guessed_word_in_game(red_team_guess)
-  end
-  Word.find_by(word: input).guess
-  Color.set_counter
-  display_board(GamePosition.formatted_words_array)
+# def user_turns ##working
+#   puts "Team Red, your clue is: "+Word.red_clue
+#   input = Word.guessed_word_in_game(red_team_guess)
+#   until input
+#     puts "That is not a valid choice"
+#     input = Word.guessed_word_in_game(red_team_guess)
+#   end
+#   Word.find_by(word: input).guess
+#   Color.set_counter
+#   display_board(GamePosition.formatted_words_array)
+#
+#   puts  "Team Blue, your clue is: "+Word.blue_clue
+#   input = Word.guessed_word_in_game(blue_team_guess)
+#   until input
+#     puts "That is not a valid choice"
+#     input = Word.guessed_word_in_game(blue_team_guess)
+#   end
+#   Word.find_by(word: input).guess
+#   Color.set_counter
+#   display_board(GamePosition.formatted_words_array)
+# end
 
-  input = Word.guessed_word_in_game(blue_team_guess)
-  until input
-    puts "That is not a valid choice"
+
+def user_turns(turn_counter) ##working
+
+  if turn_counter.odd?
+    puts "Team Red, your clue is: "+Word.red_clue
+    input = Word.guessed_word_in_game(red_team_guess)
+    until input
+      puts "That is not a valid choice"
+      input = Word.guessed_word_in_game(red_team_guess)
+    end
+    if input != "1"
+      turn_counter = Word.find_by(word: input).guess(turn_counter)
+      Color.set_counter
+    elsif input == "1"
+      turn_counter +=1
+      puts "Team Red skipped their turn"
+    end
+    Color.read_score
+    display_board(GamePosition.formatted_words_array)
+    turn_counter
+  elsif turn_counter.even?
+    puts  "Team Blue, your clue is: "+Word.blue_clue
     input = Word.guessed_word_in_game(blue_team_guess)
+    until input
+      puts "That is not a valid choice"
+      input = Word.guessed_word_in_game(blue_team_guess)
+    end
+    if input != "1"
+      turn_counter = Word.find_by(word: input).guess(turn_counter)
+      Color.set_counter
+    elsif input == "1"
+      turn_counter +=1
+      puts "Team Blue skipped their turn"
+    end
+    Color.read_score
+    display_board(GamePosition.formatted_words_array)
+    turn_counter
   end
-  Word.find_by(word: input).guess
-  Color.set_counter
-  display_board(GamePosition.formatted_words_array)
 end
 
 

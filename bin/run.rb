@@ -8,27 +8,15 @@ select_words
 GamePosition.create_new_game
 Color.set_counter
 display_board(GamePosition.formatted_words_array)
+turn_counter = GamePosition.first_player #equals 1 or 2
 until GamePosition.black_card_guessed || Color.count_team_red ==0 || Color.count_team_blue == 0
-  user_turns
+  turn_counter = user_turns(turn_counter)
+    # turn_counter +=1
 end
-
-
-
-
-# get_guess_from_user_red
-# get_guess_from_user_blue
-
-#
-# character = get_guess_from_user
-# game start
-# get 25 words (generate, input, pull from list)
-# assign colors of proper amount
-# status start at all unflipped
-# store in db
-#
-# turn consists of
-# display new board
-# clue
-# player guess input or pass
-# resolve guess
-# switch teams or end game
+if GamePosition.black_card_guessed
+  puts turn_counter%2 == 1 ? "Red Team, you lose!" : "Blue Team, you lose!"
+elsif Color.count_team_red ==0
+  puts "Red Team, you win!"
+elsif Color.count_team_blue == 0
+  puts "Blue Team, you win!"
+end
