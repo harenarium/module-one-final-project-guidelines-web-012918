@@ -14,7 +14,7 @@ class Word < ActiveRecord::Base
     all_clues = RestClient.get(url)
     clues_hash = JSON.parse(all_clues)
     if clues_hash.empty?
-      url = "https://api.datamuse.com/words?rel_par=#{self.word}" #gets the clues
+      url = "https://api.datamuse.com/words?rel_trg=#{self.word}" #gets the clue
       all_clues = RestClient.get(url)
       clues_hash = JSON.parse(all_clues)
       if clues_hash.empty?
