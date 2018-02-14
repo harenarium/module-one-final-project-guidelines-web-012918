@@ -2,11 +2,11 @@ require_relative '../config/environment'
 # old_logger = ActiveRecord::Base.logger
 ActiveRecord::Base.logger = nil
 
+load_image
 welcome
 Word.reset_words
 select_words
 turn_counter = GamePosition.create_new_game   #equals 1 or 2
-binding.pry
 Color.set_counter
 display_board(GamePosition.formatted_words_array)
 
