@@ -122,9 +122,11 @@ def user_turns(turn_counter) ##working
       puts "That is not a valid choice"
       input = Word.guessed_word_in_game(red_team_guess)
     end
-    Word.find_by(word: input).guess(turn_counter)
+    turn_counter = Word.find_by(word: input).guess(turn_counter)
     Color.set_counter
+    Color.read_score
     display_board(GamePosition.formatted_words_array)
+    turn_counter
   elsif turn_counter.even?
     puts  "Team Blue, your clue is: "+Word.blue_clue
     input = Word.guessed_word_in_game(blue_team_guess)
@@ -132,9 +134,11 @@ def user_turns(turn_counter) ##working
       puts "That is not a valid choice"
       input = Word.guessed_word_in_game(blue_team_guess)
     end
-    Word.find_by(word: input).guess(turn_counter)
+    turn_counter = Word.find_by(word: input).guess(turn_counter)
     Color.set_counter
+    Color.read_score
     display_board(GamePosition.formatted_words_array)
+    turn_counter
   end
 end
 

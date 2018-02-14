@@ -14,9 +14,18 @@ class Word < ActiveRecord::Base
     all_clues = RestClient.get(url)
     clues_hash = JSON.parse(all_clues)
     if clues_hash.empty?
-      return "This word has no synonym"
+      url = "https://api.datamuse.com/words?rel_trg=#{self.word}" #gets the clue
+      all_clues = RestClient.get(url)
+      clues_hash = JSON.parse(all_clues)
+      if clues_hash.empty?
+        return "This word has no synonym"
+      end
+      return clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first + "."
     end
     clue = clues_hash[rand(0...clues_hash.count)]["word"].split(" ").first
+    # if clue ==self.word
+    #   clue = self.word_clue
+    # end
   end
 
   def self.random_arr_of_words
@@ -50,13 +59,17 @@ class Word < ActiveRecord::Base
   def guess(turn_counter)
     self.game_positions[0].update(guessed: true)
     if self.game_positions[0].color_id == 4 #black color
-    #   puts "That was the Assasin Card! Game over!"
-    if self.game_positions[0].color_id == 3 #grey color
-    #   puts "That was an innocent bystander. Your turn ends."
-    if self.game_positions[0].color_id%2 == turn_counter%2 #same color
-    #   puts "You got it! Keep going!"
-    if self.game_positions[0].color_id%2 != turn_counter%2 #dif color
-    #   puts "Oh no! That was the other team's card! Your turn ends and they get a point."
+      puts "That was the Assasin Card! Game over!"
+      return turn_counter
+    elsif self.game_positions[0].color_id == 3 #grey color
+      puts "That was an innocent bystander. Your turn ends."
+      return turn_counter +=1
+    elsif self.game_positions[0].color_id%2 == turn_counter%2 #same color
+      puts "You got it! Keep going!"
+      return turn_counter
+    elsif self.game_positions[0].color_id%2 != turn_counter%2 #dif color
+      puts "Oh no! That was the other team's card! Your turn ends and they get a point."
+      return turn_counter +=1
     end
   end
 
