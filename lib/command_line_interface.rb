@@ -44,40 +44,6 @@ end
 # use this later
 # while Color.count_team_blue>0 && Color.count_team_blue>0
 
-def red_team_turn
-  if Word.guessed_word_in_game(red_team_guess)
-    case Word.find_by(word: red_team_guess).game_positions[0].color_id
-    when 1
-      puts "Correct"
-    when 2
-      puts "Incorrect"
-    when 3
-      puts "Grey"
-    when 4
-      puts "Game over!"
-    end
-  else
-    puts "Incorrect input"
-    red_team_turn
-  end
-end
-
-def blue_team_turn
-    case Word.find_by(word: blue_team_guess).game_positions[0].color_id
-    when 1
-      puts "Correct"
-    when 2
-      puts "Incorrect"
-    when 3
-      puts "Grey"
-    when 4
-      puts "Game over!"
-    else
-      puts "Incorrect input"
-      blue_team_turn
-    end
-end
-
 def computer_turn(turn_counter)
   if turn_counter.odd? #red turn
     begin
@@ -118,10 +84,10 @@ def user_turns(turn_counter) ##working
       turn_counter +=1
       puts "Team Red skipped their turn"
     end
-      ClearPage.clear #2
-    display_board(GamePosition.formatted_words_array) #3
-    Color.read_score #1
-    turn_counter #4
+    ClearPage.clear
+    display_board(GamePosition.formatted_words_array)
+    Color.read_score
+    turn_counter
   elsif turn_counter.even?
     # puts  "Team Blue, your clue is: "+Word.blue_clue
     input = Word.guessed_word_in_game(blue_team_guess)
