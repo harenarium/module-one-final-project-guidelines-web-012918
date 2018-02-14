@@ -31,12 +31,12 @@ def get_words_from_user
 end
 
 def red_team_guess
-  puts "\e[31mTeam Red\e[0m, enter your guess:"
+  puts "\e[31mTeam Red\e[0m, enter your guess. Press 1 to skip:"
   gets.chomp.downcase
 end
 
 def blue_team_guess
-  puts "\e[34mTeam Blue\e[0m, enter your guess:"
+  puts "\e[34mTeam Blue\e[0m, enter your guess. Press 1 to skip:"
   gets.chomp.downcase
 end
 # use this later
