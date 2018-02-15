@@ -3,9 +3,9 @@ require_relative '../config/environment'
 ActiveRecord::Base.logger = nil
 # stop_music
 play_music
-# test_image2
-# load_image
-# say_message
+test_image2
+load_image
+say_message
 welcome
 Word.reset_words
 select_words
