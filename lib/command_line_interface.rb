@@ -115,6 +115,7 @@ end
 
 def who_won(turn_counter)
   if GamePosition.black_card_guessed
+    game_over_sound
     puts turn_counter%2 == 1 ? "\e[31mTeam Red\e[0m, you lose!" : "\e[34mTeam Blue\e[0m, you lose!"
   elsif Color.count_team_red ==0
     puts "\e[31mTeam Red\e[0m, you win!"
