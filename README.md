@@ -36,7 +36,9 @@ Spymaster Options: Computer spymaster, many card clue. Human spymaster with word
 catch API error
 reveal board
 refactoring code with game model?
-update word model with new column to prevent mixing
+update word model with new column to prevent
+ability to quit game
+ability to skip intro
 
 Contributing
 -------------------------------

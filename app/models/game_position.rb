@@ -80,4 +80,8 @@ class GamePosition < ActiveRecord::Base
     GamePosition.find_by(color_id: 4).guessed
   end
 
+  # def self.reveal_words
+  #   self.update_all("guessed = 'true'")
+  # end
+
 end
