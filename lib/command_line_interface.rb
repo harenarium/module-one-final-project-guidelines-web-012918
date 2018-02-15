@@ -83,6 +83,8 @@ def user_turns(turn_counter) ##working
       #bystander sound
       if guess_output[2] == 3
         bystander_sound
+      elsif guess_output[2] == "correct"
+        correct_answer_sound
       end
       Color.set_counter
     elsif input == "1"
@@ -108,6 +110,8 @@ def user_turns(turn_counter) ##working
       message = guess_output[1]
       if guess_output[2] == 3
         bystander_sound
+      elsif guess_output[2] == "correct"
+        correct_answer_sound
       end
       Color.set_counter
     elsif input == "1"

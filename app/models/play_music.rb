@@ -17,3 +17,7 @@ end
 def bystander_sound
   pid = fork{exec "afplay", "media/bystander_scream.wav"}
 end
+
+def correct_answer_sound
+  pid = fork{exec "afplay", "media/correct_answer.wav"}
+end

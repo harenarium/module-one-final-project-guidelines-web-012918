@@ -2,10 +2,10 @@ require_relative '../config/environment'
 # old_logger = ActiveRecord::Base.logger
 ActiveRecord::Base.logger = nil
 # stop_music
-play_music
-test_image2
-load_image
-say_message
+# play_music
+# test_image2
+# load_image
+# say_message
 welcome
 Word.reset_words
 select_words
