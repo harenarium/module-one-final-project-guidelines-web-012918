@@ -68,7 +68,7 @@ puts "                     `--..#####..--'  "
   sleep(2.5)
   ClearPage.clear
   image7
-  sleep(0.6)
+  sleep(0.1)
   ClearPage.clear
   puts "                                                                                                    "
   sleep(0.05)

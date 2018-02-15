@@ -133,15 +133,15 @@ def image7
   80.times do
     puts "\e[5m\e[40m                                                                                                                                                                                                  \e[0m\e[25m"
   end
-  sleep(0.2)
+  sleep(0.1)
   50.times do
     puts "\e[5m                                                                                                                                                                                                  \e[25m"
   end
-  sleep(0.2)
+  sleep(0.1)
   50.times do
     puts "\e[5m\e[40m                                                                                                                                                                                                  \e[0m\e[25m"
   end
-  sleep(0.2)
+  sleep(0.1)
 end
 
 def test_image2
