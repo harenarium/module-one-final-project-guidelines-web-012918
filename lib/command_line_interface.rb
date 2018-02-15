@@ -1,18 +1,23 @@
 
 def welcome
-  puts "\n\n" + "Welcome to Codenames!"
+  puts "\n\n" + "Welcome to Codenames!" + "\n\n"
+  puts "This word game is played with two teams: red and blue. First player is chosen randomly so just follow the prompts."
+  puts "The spymaster will give a hint with a word and number. The word is a clue (synonym or related word) for a codename on the field."
+  puts "The number refers to how many codenames the clue refers to (currently always 1)." + "\n\n"
+  puts "For each turn, a team will recieve only one clue. For every correct guess, a team may guess again up to the clue number plus 1. Turns may also be skipped." + "\n\n"
+  puts "For an incorrect guess, the team's turn ends. If there assassin is revealed, the game ends immediately and the team who guessed it loses."
+  puts "The first team with all their teams revealed wins!" + "\n\n"
 end
 
-def goodbye
-  ClearPage.clear
-  puts "Goodbye!"
-end
-
+# def goodbye
+#   ClearPage.clear
+#   puts "Goodbye!"
+# end
 
 def select_words
   input = ""
   while input != "1" && input != "2" #&& input != "q"
-    puts "press 1 for EASY (seeded random words), press 2 for HARD (really random words)." #q to QUIT
+    puts "Press 1 for EASY (seeded random words), press 2 for HARD (really random words)." #q to QUIT
     input = gets.chomp
     if input == "1"
       Word.random_words_from_seed
