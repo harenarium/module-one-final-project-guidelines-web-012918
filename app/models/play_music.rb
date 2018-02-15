@@ -9,3 +9,11 @@ end
 def game_over_sound
   pid = fork{exec "afplay", "media/game_death.wav"}
 end
+
+def not_valid_sound
+  pid = fork{exec "afplay", "media/missed_sound.wav"}
+end
+
+def bystander_sound
+  pid = fork{exec "afplay", "media/bystander_scream.wav"}
+end

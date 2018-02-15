@@ -63,7 +63,7 @@ class Word < ActiveRecord::Base
       return [turn_counter, "That was the Assassin Card! Game over!"]
     elsif self.game_positions[0].color_id == 3 #grey color
       # puts "That was an innocent bystander. Your turn ends."
-      return [turn_counter +1,"That was an innocent bystander. Your turn ends."]
+      return [turn_counter +1,"That was an innocent bystander. Your turn ends.", 3]
     elsif self.game_positions[0].color_id%2 == turn_counter%2 #same color
       puts "You got it! Keep going!"
       return [turn_counter, "You got it! Keep going!"]

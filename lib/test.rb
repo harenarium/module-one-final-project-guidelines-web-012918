@@ -251,15 +251,15 @@ def test_image2
     sleep(0.06)
 end
 
-def end_pic_test
+def assassin_target
   puts "                     _.-'#######`-._  "
   puts "                  ,-'#    [#┬#]    #`-.  "
   puts "                ,'#         |         #`,  "
   puts "               |#           ┼           #|  "
   puts "              |#            |            #|  "
-  puts "             |##╗           ┼           ╔##|  "
-  puts "             |##────┼────┼──╬──┼────┼────##|  "
-  puts "             |##╝           ┼           ╚##|  "
+  puts "              |##╗          ┼          ╔##|  "
+  puts "              |##───┼────┼──╬──┼────┼───##|  "
+  puts "              |##╝          ┼          ╚##|  "
   puts "              |#            |            #|  "
   puts "              `\\#           ┼           #/  "
   puts "                `.#         |         #,'  "

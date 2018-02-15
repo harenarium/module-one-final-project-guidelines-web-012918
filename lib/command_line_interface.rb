@@ -72,6 +72,7 @@ def user_turns(turn_counter) ##working
     # puts "Team Red, your clue is: "+Word.red_clue
     input = Word.guessed_word_in_game(red_team_guess)
     until input
+      not_valid_sound
       puts "That is not a valid choice"
       input = Word.guessed_word_in_game(red_team_guess)
     end
@@ -79,6 +80,10 @@ def user_turns(turn_counter) ##working
       guess_output = Word.find_by(word: input).guess(turn_counter)
       turn_counter = guess_output[0]
       message = guess_output[1]
+      #bystander sound
+      if guess_output[2] == 3
+        bystander_sound
+      end
       Color.set_counter
     elsif input == "1"
       turn_counter +=1
@@ -93,6 +98,7 @@ def user_turns(turn_counter) ##working
     # puts  "Team Blue, your clue is: "+Word.blue_clue
     input = Word.guessed_word_in_game(blue_team_guess)
     until input
+      not_valid_sound
       puts "That is not a valid choice"
       input = Word.guessed_word_in_game(blue_team_guess)
     end
@@ -100,6 +106,9 @@ def user_turns(turn_counter) ##working
       guess_output = Word.find_by(word: input).guess(turn_counter)
       turn_counter = guess_output[0]
       message = guess_output[1]
+      if guess_output[2] == 3
+        bystander_sound
+      end
       Color.set_counter
     elsif input == "1"
       turn_counter +=1
@@ -115,11 +124,16 @@ end
 
 def who_won(turn_counter)
   if GamePosition.black_card_guessed
+    stop_music
+    sleep(0.1)
+    assassin_target
     game_over_sound
     puts turn_counter%2 == 1 ? "\e[31mTeam Red\e[0m, you lose!" : "\e[34mTeam Blue\e[0m, you lose!"
   elsif Color.count_team_red ==0
+    end_pic_red
     puts "\e[31mTeam Red\e[0m, you win!"
   elsif Color.count_team_blue == 0
+    end_pic_blue
     puts "\e[34mTeam Blue\e[0m, you win!"
   end
 end
