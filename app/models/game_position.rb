@@ -6,7 +6,7 @@ class GamePosition < ActiveRecord::Base
     first_player = [1,2].sample
     self.destroy_all
     color_distribution = [1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,4] << first_player
-    random_color = color_distribution.sample(25)
+    random_color = color_distribution.shuffle #sample(25)
 
     Word.words_in_game.sample(25).each {|word|
       gp = GamePosition.new

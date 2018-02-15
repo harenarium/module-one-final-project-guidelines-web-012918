@@ -1,3 +1,52 @@
+Codenames
+-------------------------------
+This is a project based on Vlaada Chvátil's Codenames, a spy-themed word game.
+Board Options: Seeded words, random words
+Spymaster Options: Currently this version has a computer spymaster that can offer a clue for one card
+
+
+How to Play
+-------------------------------
+Computer spymaster, 1 card clue. This is a 2+ player game with two teams: red and blue.
+
+First player is chosen randomly.
+The spymaster will give a hint with a word and number (currently always 1). The word is a clue for a codename on the field.
+This word is created using synonyms or if there is none, using a related word. The number refers to how many names the clue refers to.
+
+For every correct guess, a team may have another guess up to the number given by the spymaster + 1 but will not receive any additional clues. For an incorrect guess, the teams turn end. Turns may also be skipped.
+
+The first team with all their teams revealed wins! If there assassin is revealed, the game ends immediately and the team who guessed it loses.
+
+
+How to Install
+-------------------------------
+Please bundle install the gemfile
+Please create and seed the database by running commands "rake db:migrate" and "rake db:seed"
+Run in terminal using the command "ruby bin/run.rb"
+A stable internet connection is required to play
+
+NOTE: Randomly generated words will be added to database. To re-seed the model with only the original seeded words delete db/migrate/development.db and reseed by running "rake db:seed" in the command line
+
+
+Possible Future Improvements
+-------------------------------
+Board Options: words from user input shuffled or in order
+Spymaster Options: Computer spymaster, many card clue. Human spymaster with word aid.
+
+catch API error
+reveal board
+refactoring code with game model?
+update word model with new column to prevent mixing
+
+Contributing
+-------------------------------
+Bug reports and pull requests are welcome on GitHub at https://github.com/harenarium/module-one-final-project-guidelines-web-012918.
+
+License
+The program is available as open source under the terms of the MIT License.
+
+
+=================================================================================================================================
 # Module One Final Project Guidelines
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.

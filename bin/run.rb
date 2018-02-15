@@ -2,7 +2,9 @@ require_relative '../config/environment'
 # old_logger = ActiveRecord::Base.logger
 ActiveRecord::Base.logger = nil
 
+end_pic_test
 play_music
+test_image2
 load_image
 say_message
 welcome
