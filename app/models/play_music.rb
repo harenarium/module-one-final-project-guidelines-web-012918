@@ -21,3 +21,7 @@ end
 def correct_answer_sound
   pid = fork{exec "afplay", "media/correct_answer.wav"}
 end
+
+def other_teams_card_sound
+  pid = fork{exec "afplay", "media/evil_laugh.wav"}
+end

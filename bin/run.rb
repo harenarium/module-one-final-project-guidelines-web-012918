@@ -5,7 +5,7 @@ ActiveRecord::Base.logger = nil
 play_music
 test_image2
 load_image
-# say_message
+say_message
 welcome
 Word.reset_words
 select_words

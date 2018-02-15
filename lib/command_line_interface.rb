@@ -85,6 +85,8 @@ def user_turns(turn_counter) ##working
         bystander_sound
       elsif guess_output[2] == "correct"
         correct_answer_sound
+      elsif guess_output[2] == "other team's card"
+        other_teams_card_sound
       end
       Color.set_counter
     elsif input == "1"
@@ -112,6 +114,8 @@ def user_turns(turn_counter) ##working
         bystander_sound
       elsif guess_output[2] == "correct"
         correct_answer_sound
+      elsif guess_output[2] == "other team's card"
+        other_teams_card_sound
       end
       Color.set_counter
     elsif input == "1"
