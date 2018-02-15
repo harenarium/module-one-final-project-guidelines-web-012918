@@ -148,3 +148,8 @@ def display_board(board)
   puts "  ╚═════════════╩═════════════╩═════════════╩═════════════╩═════════════╝"
 
 end
+
+def reveal_board(board)
+  # GamePosition.reveal_words
+  display_board(board)
+end

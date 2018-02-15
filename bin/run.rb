@@ -2,11 +2,10 @@ require_relative '../config/environment'
 # old_logger = ActiveRecord::Base.logger
 ActiveRecord::Base.logger = nil
 
-end_pic_test
 play_music
 test_image2
 load_image
-say_message
+# say_message
 welcome
 Word.reset_words
 select_words
@@ -31,4 +30,5 @@ until GamePosition.black_card_guessed || Color.count_team_red ==0 || Color.count
   end
 end
 who_won(turn_counter)
+# reveal_board(GamePosition.formatted_words_array)
 stop_music
